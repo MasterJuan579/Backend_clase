@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import ProyectoController from "./controllers/ProyectoController";
 import AlumnoController from "./controllers/AlumnoController";
+import ClienteController from "./controllers/ClienteController";
 
 
 
@@ -18,7 +19,8 @@ const server: Server = new Server({
     ],
     controllers: [
         ProyectoController.instance,
-        AlumnoController.instance
+        AlumnoController.instance,
+        ClienteController.instance
     ]
 });
 server.init();

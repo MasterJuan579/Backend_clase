@@ -6,7 +6,7 @@ class MongoConnection{
 
     constructor(){
         //mongodb://username:password@host:port/database?authSource=admin
-        this.mongoUri = `mongodb://${DB_NOSQL_USER}:${DB_NOSQL_PASSWORD}:@${DB_NOSQL_HOST}:27017/${DB_NOSQL_NAME}?authSource=admin`
+        this.mongoUri = `mongodb://${DB_NOSQL_USER}:${DB_NOSQL_PASSWORD}@${DB_NOSQL_HOST}:27017/${DB_NOSQL_NAME}?authSource=admin`
         console.log(this.mongoUri)
     }
     public async connect():Promise<void>{
