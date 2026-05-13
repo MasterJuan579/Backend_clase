@@ -27,7 +27,7 @@ class Server{
     private initControllers(controllers: AbstractController[]): void{
         //   http://IP:PORT/ 
         this.app.get('/', (req: Request, res: Response) => {
-            res.send('Server is working ');
+            res.send('Server is working 🚀');
         })
         controllers.forEach(controller => {
             this.app.use("/"+controller.prefix,controller.router);

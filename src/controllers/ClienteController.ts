@@ -1,7 +1,7 @@
 import { Request,Response } from "express";
 import AbstractController from "./AbstractController";
 import { ClienteModel } from "../modelsNOSQL/Cliente";
-
+ 
 export default class ClienteController extends AbstractController{
     //Singleton
     //Atributos de clase
@@ -13,13 +13,13 @@ export default class ClienteController extends AbstractController{
     }
     //Metodo de instancia
     protected initRoutes(): void {
-        this.router.get('/listarCliente',
-            this.getListarCliente.bind(this));
+        this.router.get('/listarClientes',
+            this.getListarClientes.bind(this));
         this.router.post('/crearCliente',
             this.postCrearCliente.bind(this));    
     }
-
-    private async getListarCliente(req:Request,res:Response):Promise<void>{
+ 
+    private async getListarClientes(req:Request,res:Response):Promise<void>{
         //SELECT
         try{
             const clientes = await ClienteModel.find().sort({createdAt:-1});
@@ -35,11 +35,11 @@ export default class ClienteController extends AbstractController{
         try{
             console.log(req.body);
             await ClienteModel.create(req.body);
-            res.status(200).json({message:"Registro de Cliente exitoso"});
+            res.status(200).json({message:"Registro de proyecto exitoso"});
         }catch(err){
             console.log(err);
             res.status(500).json(err)
         }
     }
-
+ 
 }
